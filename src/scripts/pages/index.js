@@ -1,13 +1,11 @@
 const factoryPhotographer = require('../factories/photographer')
 
 const getPhotographers = async () => {
-  const photographers =
-    await
-    fetch('/src/data/photographers.json')
-      .then(res => res.json(res))
-      .then(data => console.log(data))
-  console.log(photographers)
-  return ({ photographers: [...photographers.photographers] })
+  const photographers = []
+  const response = await fetch('/src/data/photographers.json') // attend que la data soir recuperer
+  const data = await response.json() // attend que la data soit converti
+  photographers.push(data.photographers) // on push data.photographers dans photographers
+  return ({ photographers: [...photographers[0]] }) // on retourne la data photographers du tableau[0] de photographers
 }
 
 const displayData = async photographers => {
