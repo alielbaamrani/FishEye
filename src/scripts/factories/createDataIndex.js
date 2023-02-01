@@ -1,10 +1,12 @@
 module.exports = {
   create (data) {
-    const { name, city, portrait, tagline, price, country } = data
+    const { name, city, portrait, tagline, price, country, id } = data
 
     const picture = `/src/assets/photographers/${portrait}`
 
     const getUserCardDOM = () => {
+      const a = document.createElement('a')
+      a.setAttribute('href', `photographer.html?id=${id}`)
       const article = document.createElement('article')
       const img = document.createElement('img')
       img.setAttribute('src', picture)
@@ -22,7 +24,8 @@ module.exports = {
       article.appendChild(h3)
       article.appendChild(h4)
       article.appendChild(prix)
-      return (article)
+      a.appendChild(article)
+      return (a)
     }
 
     return { name, city, picture, tagline, price, country, getUserCardDOM }

@@ -7,19 +7,9 @@
     "build": "webpack",
     "start": "cross-env NODE_ENV='development' webpack-dev-server --progress --color --open --config webpack.config.js --mode development"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/thra/dev-js-p6.git"
-  },
-  "keywords": [
-    "DJP6"
-  ],
-  "author": "Thierry Raimond",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/thra/dev-js-p6/issues"
-  },
-  "homepage": "https://github.com/thra/dev-js-p6#readme",
+
+  "author": "El Baamrani Ali",
+
   "devDependencies": {
     "@babel/core": "^7.17.12",
     "babel-eslint": "^10.1.0",
