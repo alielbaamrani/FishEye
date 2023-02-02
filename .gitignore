@@ -104,5 +104,4 @@ dist
 .tern-port
 
 node_modules
-src/assets/medias
-src/assets/photographers
+

@@ -4,7 +4,7 @@ module.exports = {
     const { photographerId, name, city, country, tagline, portrait, title, image, likes, date, price } = data
 
     const picture = `/src/assets/photographers/${portrait}`
-    const imge = `/src/assets/medias/Ellie Rose/${image}`
+    const source = `/src/assets/medias/${name}/${title}`
 
     const getPhotographerCardDOM = () => {
       const photographCardInfo = document.getElementById('photographCardInfo')
@@ -31,7 +31,7 @@ module.exports = {
       const allPhotographMedia = document.getElementById('photographMedia')
       const media = document.createElement('img')
       media.classList.add(media)
-      media.setAttribute('src', imge)
+      media.setAttribute('src', source)
       allPhotographMedia.appendChild(media)
 
       return (allPhotographMedia)
