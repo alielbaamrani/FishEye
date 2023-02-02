@@ -1,0 +1,59 @@
+.photographer_section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 70px;
+  margin-top: 100px;
+
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  article {
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  h2,
+  h3,
+  h4,
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  article h2 {
+    margin: 10px 0;
+    color: #d3573c;
+    font-size: 36px;
+  }
+
+  article h3 {
+    margin: 5px 0;
+    color: #d3573c;
+  }
+  article h4 {
+    margin: 5px;
+    color: #000;
+  }
+
+  article p {
+    margin: 5px;
+    color: #757575;
+  }
+  article img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+  }
+}
