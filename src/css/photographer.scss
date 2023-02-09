@@ -73,6 +73,15 @@ header {
   margin: auto;
 }
 
+.modalSub {
+display: flex;
+justify-content: space-around;
+
+.closeModal {
+  padding-left: 20px;
+}
+}
+
 .modal header {
   justify-content: space-between;
   width: 100%;
@@ -105,12 +114,30 @@ form div {
   flex-direction: column;
   width: 100%;
   align-items: self-start;
-  margin-bottom: 26px;
 }
 
 form input {
   width: 100%;
-  height: 68px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+
+}
+
+.message {
+  height: 100px;
+}
+
+.contactSend {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding: 11px;
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: #901c1c;
+  border-radius: 5px;
+  cursor: pointer;
 }
