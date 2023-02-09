@@ -34,13 +34,13 @@
 
   article h2 {
     margin: 10px 0;
-    color: #d3573c;
+    color: var(--secondary-color);
     font-size: 36px;
   }
 
   article h3 {
     margin: 5px 0;
-    color: #d3573c;
+    color: var(--primary-color);
   }
   article h4 {
     margin: 5px;
@@ -49,7 +49,7 @@
 
   article p {
     margin: 5px;
-    color: #757575;
+    color: var(--tertiaire-color);
   }
   article img {
     height: 200px;

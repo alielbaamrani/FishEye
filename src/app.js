@@ -1,5 +1,9 @@
 /* Inject css */
 require('./css/style.scss')
+require('./scripts/utils/contactForm.js')
+require('./scripts/utils/domLinker.js')
+
+require('./app')
 
 /* Rooter of the app : load js file in function of url */
 const url = new URL(window.location.href)
@@ -14,3 +18,5 @@ if (id !== null) {
   // By default load home page
   require('./scripts/pages/index')
 }
+
+console.log('app.js')

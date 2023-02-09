@@ -1,51 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <link
-      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <title>Fisheye - photographe</title>
-  </head>
-  <body>
-    <header>
-      <a href="./index.html">
-        <img src="../assets/images/logo.png" alt="logo" class="logo" />
-      </a>
-    </header>
 
-    <main id="main">
-      <div id="photographCardInfo">
-        <div class="info">
-          <h2></h2>
-          <h3></h3>
-          <h4></h4>
+<head>
+  <meta charset="utf-8" />
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
+  <title>Fisheye - photographe</title>
+  <script src="../app.js"></script>
+
+</head>
+
+<body>
+  <div id="contactModal">
+    <div class="modal">
+      <h2>Contactez-moi</h2>
+      <img class="closeModal" src="../assets/icons/close.svg" />
+
+      <form>
+        <div>
+          <label>Prénom</label>
+          <input />
         </div>
-        <button class="contact_button" onclick="displayModal()">
-          Contactez-moi
-        </button>
-      </div>
-
-      <p>Tier par : </p>
-
-      <div id="photographMedias"></div>
-    </main>
-    <!-- Formulaire -->
-    <div id="contact_modal">
-      <div class="modal">
-        <h2>Contactez-moi</h2>
-        <img src="../assets/icons/close.svg" onclick="closeModal()" />
-
-        <form>
-          <div>
-            <label>Prénom</label>
-            <input />
-          </div>
-          <button class="contact_button">Envoyer</button>
-        </form>
-      </div>
+        <div>
+          <label>nom</label>
+          <input />
+        </div>
+        <div>
+          <label>email</label>
+          <input />
+        </div>
+        <div>
+          <label>Votre message</label>
+          <input />
+        </div>
+        <button class="contactSend">Envoyer</button>
+      </form>
     </div>
-    <!-- <script src="/scripts/utils/contactForm.js"></script> -->
-  </body>
+  </div>
+  <header>
+    <a href="./index.html">
+      <img src="../assets/images/logo.png" alt="logo" class="logo" />
+    </a>
+  </header>
+
+  <main id="main">
+    <div id="photographCardInfo">
+      <button class="contactButton">
+        Contactez-moi
+      </button>
+    </div>
+
+    <p>Tier par : </p>
+
+    <div id="photographMedias"></div>
+  </main>
+
+</body>
+
 </html>

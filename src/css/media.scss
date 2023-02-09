@@ -1,0 +1,25 @@
+#photographMedias {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+article {
+  width: 350px;
+  height: 300px;
+  margin-bottom: 30px;
+
+  .media {
+    border-radius: 5px;
+
+    width: 100%;
+    height: 90%;
+    object-fit: cover;
+  }
+
+  .articleInfo {
+    color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+  }
+}

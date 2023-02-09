@@ -1,9 +1,17 @@
-function displayModal () {
-  const modal = document.getElementById('contact_modal')
-  modal.style.display = 'block'
+const { contactModal, contactButton, closeModal } = require('./domLinker')
+
+contactButton.addEventListener('click', () => displayModal())
+closeModal.addEventListener('click', () => closeForm())
+
+const displayModal = () => {
+  contactModal.style.display = 'block'
 }
 
-function closeModal () {
-  const modal = document.getElementById('contact_modal')
-  modal.style.display = 'none'
+const closeForm = () => {
+  contactModal.style.display = 'none'
+}
+
+module.exports = {
+  displayModal,
+  closeForm
 }
