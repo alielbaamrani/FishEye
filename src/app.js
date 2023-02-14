@@ -1,9 +1,5 @@
 /* Inject css */
 require('./css/style.scss')
-require('./scripts/utils/contactForm.js')
-require('./scripts/utils/domLinker.js')
-
-require('./app')
 
 /* Rooter of the app : load js file in function of url */
 const url = new URL(window.location.href)
@@ -14,6 +10,8 @@ const id = url.searchParams.get('id')
 if (id !== null) {
   console.log('id:', id)
   require('./scripts/pages/photographer')(id)
+  require('./scripts/utils/contactForm.js')
+  require('./scripts/utils/lightbox.js')
 } else {
   // By default load home page
   require('./scripts/pages/index')

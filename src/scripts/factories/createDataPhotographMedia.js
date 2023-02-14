@@ -4,7 +4,7 @@ module.exports = {
     const { photographerId, name, city, country, tagline, portrait, title, image, video, likes, date, price } = data
 
     const picture = `/src/assets/photographers/${portrait}`
-    const source = `/src/assets/medias/${image}`
+    const source = `/src/assets/medias/${image || video}`
 
     const getPhotographerCardDOM = () => {
       const photographCardInfo = document.getElementById('photographCardInfo')
@@ -29,25 +29,58 @@ module.exports = {
 
     const getPhotographMediaDOM = () => {
       const allPhotographMedia = document.getElementById('photographMedias')
-      const article = document.createElement('article')
-      const media = document.createElement('img')
+      const article = document.createElement('a')
+      article.setAttribute('href', source)
       const articleInfo = document.createElement('div')
       articleInfo.classList.add('articleInfo')
       const pTitle = document.createElement('p')
       const pLikes = document.createElement('p')
+      const love = document.createElement('i')
+      love.classList.add('fa-solid', 'fa-heart')
       pTitle.textContent = `${title}`
       pLikes.textContent = `${likes}`
-      media.classList.add('media')
-      console.log(source)
-      media.setAttribute('src', source)
-      media.setAttribute('alt', title)
-      article.appendChild(media)
+      if (image) {
+        const media = document.createElement('img')
+        media.classList.add('media')
+        media.setAttribute('src', source)
+        media.setAttribute('alt', title)
+        article.appendChild(media)
+      } else {
+        const media = document.createElement('video')
+        media.setAttribute('src', source)
+        media.setAttribute('alt', title)
+        media.setAttribute('width', '100%')
+        media.setAttribute('height', '90%')
+        media.setAttribute('type', 'video/mp4')
+        article.appendChild(media)
+      }
       allPhotographMedia.appendChild(article)
       articleInfo.appendChild(pTitle)
       articleInfo.appendChild(pLikes)
+      pLikes.appendChild(love)
       article.appendChild(articleInfo)
+
+      const modale = document.querySelector('.lightbox')
+      const close = document.querySelector('.lightbox__close')
+      const links = document.querySelectorAll('#photographMedias a')
+      for (const link of links) {
+        link.addEventListener('click', function (e) {
+          // desactive l'evenement par default
+          e.preventDefault()
+          const lighBoxImg = document.querySelector('.lightbox__container img')
+          lighBoxImg.src = this.href
+          modale.style.display = 'block'
+        })
+      }
     }
 
-    return { photographerId, name, city, country, tagline, portrait, title, image, video, likes, date, price, getPhotographerCardDOM, getPhotographMediaDOM }
+    const getLikesPhotographer = () => {
+      const infoBar = document.getElementById('infoBar')
+      const likesCount = document.createElement('p')
+      likesCount.innerHTML = 'test'
+      infoBar.appendChild(likesCount)
+    }
+
+    return { photographerId, name, city, country, tagline, portrait, title, image, video, likes, date, price, getPhotographerCardDOM, getPhotographMediaDOM, getLikesPhotographer }
   }
 }

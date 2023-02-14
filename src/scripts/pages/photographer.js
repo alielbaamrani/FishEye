@@ -1,6 +1,5 @@
 const factoryPhotographer = require('../factories/createDataPhotographMedia')
-const { getPhotographerById } = require('../components/api')
-const { getMediaByPhotographerId } = require('../components/api')
+const { getPhotographerById, getMediaByPhotographerId } = require('../components/api')
 
 // photographerCardInfo by getPhotographerById
 
@@ -13,13 +12,9 @@ const displayData = async photographer => {
 }
 // Medias by getPhotographMedia
 const displayDataMedias = async medias => {
-  const photographMedias = document.querySelector('#photographMedias')
-
   medias.forEach((media) => {
     const mediaModel = factoryPhotographer.create(media)
     mediaModel.getPhotographMediaDOM()
-    const photographMediaDOM = mediaModel.getPhotographMediaDOM()
-    photographMedias.appendChild(photographMediaDOM)
   })
 }
 
