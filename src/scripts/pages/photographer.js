@@ -26,7 +26,6 @@ module.exports = id => {
     const medias = await getMediaByPhotographerId(parseInt(id))
     displayData(photographerId)
     displayDataMedias(medias)
-    console.log(medias)
   }
 
   init()

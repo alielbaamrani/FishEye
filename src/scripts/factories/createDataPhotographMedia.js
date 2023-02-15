@@ -59,19 +59,37 @@ module.exports = {
       articleInfo.appendChild(pLikes)
       pLikes.appendChild(love)
       article.appendChild(articleInfo)
-
+      // modale
       const modale = document.querySelector('.lightbox')
       const close = document.querySelector('.lightbox__close')
       const links = document.querySelectorAll('#photographMedias a')
+      const isImage = ['.gif', '.jpg', '.jpeg', '.png'] // you can add more
+      const isVideo = ['.mpg', '.mp2', '.mpeg', '.mpe', '.mpv', '.mp4'] // you can add more extention
       for (const link of links) {
         link.addEventListener('click', function (e) {
           // desactive l'evenement par default
           e.preventDefault()
-          const lighBoxImg = document.querySelector('.lightbox__container img')
-          lighBoxImg.src = this.href
+          if (isImage) {
+            const lightboxImg = document.querySelector('.lightbox__container img')
+            console.log(lightboxImg)
+            lightboxImg.src = this.href
+            const lightboxContainer = document.querySelector('.lightbox__container')
+            lightboxContainer.appendChild(lightboxImg)
+            lightboxImg.style.display = 'block'
+          } else if (isVideo) {
+            const lightboxVideo = document.querySelector('.lightbox__container video')
+            lightboxVideo.src = this.href
+            const lightboxContainer = document.querySelector('.lightbox__container')
+            lightboxContainer.appendChild(lightboxVideo)
+            lightboxVideo.style.display = 'block'
+          }
+
           modale.style.display = 'block'
         })
       }
+      close.addEventListener('click', function () {
+        modale.style.display = 'none'
+      })
     }
 
     const getLikesPhotographer = () => {

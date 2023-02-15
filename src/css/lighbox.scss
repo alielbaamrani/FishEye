@@ -1,5 +1,5 @@
 .lightbox {
-    display: none;
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -56,10 +56,13 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin: 50px;
   img {
-    max-width: 100%;
-    height: auto;
+    display: none;
+width: 50%;
+height: auto;
+  }
+  video {
+    display: none;
   }
 }
