@@ -25,6 +25,11 @@ module.exports = {
       info.appendChild(h4)
       photographCardInfo.prepend(info)
       photographCardInfo.appendChild(photographImg)
+
+      const modalSub = document.querySelector('.modalSub')
+      const photographName = document.querySelector('.photographName')
+      photographName.textContent = `Contactez-moi ${name}`
+      modalSub.appendChild(photographName)
     }
 
     const getPhotographMediaDOM = () => {
@@ -59,7 +64,7 @@ module.exports = {
       articleInfo.appendChild(pLikes)
       pLikes.appendChild(love)
       article.appendChild(articleInfo)
-      // modale
+      // modale lightbox
       const modale = document.querySelector('.lightbox')
       const close = document.querySelector('.lightbox__close')
       const links = document.querySelectorAll('#photographMedias a')

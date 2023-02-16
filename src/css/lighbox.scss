@@ -6,24 +6,22 @@
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: #FFF;
 }
 
 .lightbox__close {
   position: fixed;
   border: none;
   background: none;
-  color: #ffff;
+  color: var(--primary-color);
   width: 28px;
   height: 28px;
   font-size: 40px;
   right: 20px;
   top: 20px;
-  opacity: 0.5;
+  opacity: 1;
   cursor: pointer;
-  &:hover {
-    opacity: 1;
-  }
+
 }
 
 .lightbox__next,
@@ -33,18 +31,15 @@
   background: none;
   width: 16px;
   height: 28px;
-  color: #ffff;
+  color: var(--primary-color);
   position: fixed;
   right: 20px;
   top: 50%;
   margin-top: -14px;
   z-index: 11;
-  opacity: 0.5;
+  opacity: 1;
   cursor: pointer;
 
-  &:hover {
-    opacity: 1;
-  }
 }
 
 .lightbox__next {
