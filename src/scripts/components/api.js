@@ -21,6 +21,8 @@ const getPhotographerById = id => getPhotographers().then(photographers => photo
  */
 const getMedias = () => axios.get(url).then(response => response.data.media)
 
+console.log(getMedias)
+
 /**
  * Get medias in function of photographerId in param
  *
@@ -29,8 +31,11 @@ const getMedias = () => axios.get(url).then(response => response.data.media)
  */
 const getMediaByPhotographerId = id => getMedias().then(medias => medias.filter(media => media.photographerId === id))
 
+const getMediaByPhotographerByLike = id => getMediaByPhotographerId().then(medias => medias.filter(media => media.likes === id))
+
 module.exports = {
   getPhotographers,
   getPhotographerById,
-  getMediaByPhotographerId
+  getMediaByPhotographerId,
+  getMediaByPhotographerByLike
 }

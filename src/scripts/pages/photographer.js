@@ -1,20 +1,31 @@
 const factoryPhotographer = require('../factories/createDataPhotographMedia')
-const { getPhotographerById, getMediaByPhotographerId } = require('../components/api')
-
-// photographerCardInfo by getPhotographerById
+const { getPhotographerById, getMediaByPhotographerId, getMediaByPhotographerByLike } = require('../components/api')
+const { lightbox, lightboxContainer, lightboxClose, previous, next } = require('../utils/domLinker')
+const { previousMedia, nextMedia } = require('../utils/lightbox')
+const state = require('../components/state')
 
 const displayData = async photographer => {
-  // const photographerCardInfo = document.querySelector('#photographCardInfo')
   const photographerCardModel = factoryPhotographer.create(photographer)
   photographerCardModel.getPhotographerCardDOM()
-  // const photographerCardDOM = photographerCardModel.getPhotographerCardDOM()
-  // photographerCardInfo.appendChild(photographerCardDOM)
 }
 // Medias by getPhotographMedia
-const displayDataMedias = async medias => {
-  medias.forEach((media) => {
-    const mediaModel = factoryPhotographer.create(media)
-    mediaModel.getPhotographMediaDOM()
+const displayDataMedias = async datas => {
+  datas.forEach(data => {
+    const mediaModel = factoryPhotographer.create(data)
+    const media = mediaModel.getPhotographMediaDOM()
+
+    // open lightbox on click on media
+    media.addEventListener('click', () => {
+      // Remove all first child from an element
+      while (lightboxContainer.firstChild) {
+        lightboxContainer.removeChild(lightboxContainer.firstChild)
+      }
+
+      state.currentMedia = data
+
+      lightbox.style.display = 'block'
+      lightboxContainer.appendChild(mediaModel.getMedia())
+    })
   })
 }
 
@@ -24,8 +35,13 @@ module.exports = id => {
     const photographerId = await getPhotographerById(parseInt(id))
     // Récupere les data by getMediaByPhotographerId
     const medias = await getMediaByPhotographerId(parseInt(id))
+    const mediasLike = await getMediaByPhotographerByLike(parseInt(id))
     displayData(photographerId)
     displayDataMedias(medias)
+
+    lightboxClose.addEventListener('click', () => lightbox.style.display = 'none')
+    previous.addEventListener('click', () => previousMedia(medias))
+    next.addEventListener('click', () => nextMedia(medias))
   }
 
   init()

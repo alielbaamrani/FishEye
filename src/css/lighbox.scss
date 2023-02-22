@@ -42,7 +42,7 @@
 
 }
 
-.lightbox__next {
+.lightbox__prev {
   left: 0;
 }
 
@@ -52,12 +52,14 @@
   justify-content: center;
   min-height: 100vh;
   margin: 50px;
+
   img {
-    display: none;
-width: 50%;
-height: auto;
+    // display: none;
+    width: 50%;
+    height: auto;
   }
+
   video {
-    display: none;
+    // display: none;
   }
 }

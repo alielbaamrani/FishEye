@@ -1,75 +1,79 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <link
-      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/17560ba329.js"
-      crossorigin="anonymous"
-    ></script>
-    <title>Fisheye - photographe</title>
-  </head>
 
-  <body>
-    <div id="contactModal">
-      <div class="modal">
-        <div class="modalSub">
-          <h2 class="photographName">Contactez-moi</h2>
-          <img class="closeModal" src="../assets/icons/close.svg" />
+<head>
+  <meta charset="utf-8" />
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/17560ba329.js" crossorigin="anonymous"></script>
+  <title>Fisheye - photographe</title>
+</head>
+
+<body>
+  <div id="contactModal">
+    <div class="modal">
+      <div class="modalSub">
+        <h2 class="photographName">Contactez-moi</h2>
+        <img class="closeModal" src="../assets/icons/close.svg" />
+      </div>
+      <form id="form-contact">
+        <div>
+          <label>Prénom</label>
+          <input id="prenom" />
         </div>
-        <form>
-          <div>
-            <label>Prénom</label>
-            <input id="prenom" />
-          </div>
-          <div>
-            <label>nom</label>
-            <input class="nom" />
-          </div>
-          <div>
-            <label>email</label>
-            <input class="email" />
-          </div>
-          <div>
-            <label>Votre message</label>
-            <input class="message" />
-          </div>
-          <button class="contactSend">Envoyer</button>
-        </form>
-      </div>
+        <div>
+          <label>nom</label>
+          <input id="nom" />
+        </div>
+        <div>
+          <label>email</label>
+          <input id="email" />
+        </div>
+        <div>
+          <label>Votre message</label>
+          <textarea id="message"></textarea>
+        </div>
+        <input type="submit" value="Envoyer" class="contactSend" />
+      </form>
+    </div>
+  </div>
+
+  <header>
+    <a href="./index.html">
+      <img src="../assets/images/logo.png" alt="logo" class="logo" />
+    </a>
+  </header>
+
+  <main id="main">
+    <div id="photographCardInfo">
+      <button class="contactButton">Contactez-moi</button>
     </div>
 
-    <header>
-      <a href="./index.html">
-        <img src="../assets/images/logo.png" alt="logo" class="logo" />
-      </a>
-    </header>
-
-    <main id="main">
-      <div id="photographCardInfo">
-        <button class="contactButton">Contactez-moi</button>
-      </div>
-
-      <p>Tier par :</p>
-
-      <div id="infoBar"></div>
-      <div id="photographMedias"></div>
-    </main>
-    <div class="lightbox">
-      <button class="lightbox__close"><i class="fa-solid fa-xmark"></i></button>
-      <button class="lightbox__prev">
-        <i class="fa-solid fa-chevron-right"></i>
-      </button>
-      <button class="lightbox__next">
-        <i class="fa-solid fa-chevron-left"></i>
-      </button>
-      <div class="lightbox__container">
-        <img src="./index.html" alt="">
-        <video controls src="./index.html"></video>
-      </div>
+<div id="filter">
+  <p> Trier par : </p>
+  <div id="filters">
+    <p>Filters </p>
+    <div id="filter-select">
+<div class="filter populaire">Popularité</div>
+<div class="filter date">Date</div>
+<div class="filter title ">Titre</div>
     </div>
-  </body>
+  </div>
+</div>
+
+    <div id="infoBar"></div>
+    <div id="photographMedias"></div>
+  </main>
+  <div id="lightbox" class="lightbox">
+    <button id="lightbox-close" class="lightbox__close"><i class="fa-solid fa-xmark"></i></button>
+    <button id="next" class="lightbox__next">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+    <button id="previous" class="lightbox__prev">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <div id="lightbox-container" class="lightbox__container">
+    </div>
+  </div>
+</body>
+
 </html>

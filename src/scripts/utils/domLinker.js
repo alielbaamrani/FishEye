@@ -2,6 +2,17 @@ module.exports = {
   contactButton: document.querySelector('.contactButton'),
   contactModal: document.getElementById('contactModal'),
   closeModal: document.querySelector('.closeModal'),
-  submit: document.querySelector('.contactSend')
+  // MODAL CONTACT
+  formContact: document.getElementById('form-contact'),
+  prenom: document.getElementById('prenom'),
+  nom: document.getElementById('nom'),
+  email: document.getElementById('email'),
+  message: document.getElementById('message'),
 
+  // Lightbox
+  lightboxContainer: document.getElementById('lightbox-container'),
+  lightbox: document.getElementById('lightbox'),
+  lightboxClose: document.getElementById('lightbox-close'),
+  previous: document.getElementById('previous'),
+  next: document.getElementById('next')
 }

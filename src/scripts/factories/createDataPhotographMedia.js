@@ -1,4 +1,3 @@
-
 module.exports = {
   create (data) {
     const { photographerId, name, city, country, tagline, portrait, title, image, video, likes, date, price } = data
@@ -32,10 +31,26 @@ module.exports = {
       modalSub.appendChild(photographName)
     }
 
+    const getMedia = () => {
+      let media
+      if (image) {
+        media = document.createElement('img')
+        media.classList.add('media')
+      } else {
+        media = document.createElement('video')
+        media.setAttribute('width', '100%')
+        media.setAttribute('height', '90%')
+        media.setAttribute('type', 'video/mp4')
+      }
+
+      media.setAttribute('src', source)
+      media.setAttribute('alt', title)
+      return media
+    }
+
     const getPhotographMediaDOM = () => {
       const allPhotographMedia = document.getElementById('photographMedias')
-      const article = document.createElement('a')
-      article.setAttribute('href', source)
+      const article = document.createElement('article')
       const articleInfo = document.createElement('div')
       articleInfo.classList.add('articleInfo')
       const pTitle = document.createElement('p')
@@ -44,66 +59,17 @@ module.exports = {
       love.classList.add('fa-solid', 'fa-heart')
       pTitle.textContent = `${title}`
       pLikes.textContent = `${likes}`
-      if (image) {
-        const media = document.createElement('img')
-        media.classList.add('media')
-        media.setAttribute('src', source)
-        media.setAttribute('alt', title)
-        article.appendChild(media)
-      } else {
-        const media = document.createElement('video')
-        media.setAttribute('src', source)
-        media.setAttribute('alt', title)
-        media.setAttribute('width', '100%')
-        media.setAttribute('height', '90%')
-        media.setAttribute('type', 'video/mp4')
-        article.appendChild(media)
-      }
+      const media = getMedia()
+      article.appendChild(media)
       allPhotographMedia.appendChild(article)
       articleInfo.appendChild(pTitle)
       articleInfo.appendChild(pLikes)
       pLikes.appendChild(love)
       article.appendChild(articleInfo)
-      // modale lightbox
-      const modale = document.querySelector('.lightbox')
-      const close = document.querySelector('.lightbox__close')
-      const links = document.querySelectorAll('#photographMedias a')
-      const isImage = ['.gif', '.jpg', '.jpeg', '.png'] // you can add more
-      const isVideo = ['.mpg', '.mp2', '.mpeg', '.mpe', '.mpv', '.mp4'] // you can add more extention
-      for (const link of links) {
-        link.addEventListener('click', function (e) {
-          // desactive l'evenement par default
-          e.preventDefault()
-          if (isImage) {
-            const lightboxImg = document.querySelector('.lightbox__container img')
-            console.log(lightboxImg)
-            lightboxImg.src = this.href
-            const lightboxContainer = document.querySelector('.lightbox__container')
-            lightboxContainer.appendChild(lightboxImg)
-            lightboxImg.style.display = 'block'
-          } else if (isVideo) {
-            const lightboxVideo = document.querySelector('.lightbox__container video')
-            lightboxVideo.src = this.href
-            const lightboxContainer = document.querySelector('.lightbox__container')
-            lightboxContainer.appendChild(lightboxVideo)
-            lightboxVideo.style.display = 'block'
-          }
 
-          modale.style.display = 'block'
-        })
-      }
-      close.addEventListener('click', function () {
-        modale.style.display = 'none'
-      })
+      return media
     }
 
-    const getLikesPhotographer = () => {
-      const infoBar = document.getElementById('infoBar')
-      const likesCount = document.createElement('p')
-      likesCount.innerHTML = 'test'
-      infoBar.appendChild(likesCount)
-    }
-
-    return { photographerId, name, city, country, tagline, portrait, title, image, video, likes, date, price, getPhotographerCardDOM, getPhotographMediaDOM, getLikesPhotographer }
+    return { photographerId, name, city, country, tagline, portrait, title, image, video, likes, date, price, getPhotographerCardDOM, getPhotographMediaDOM, getMedia }
   }
 }
