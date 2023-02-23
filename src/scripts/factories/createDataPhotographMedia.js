@@ -35,14 +35,13 @@ module.exports = {
       let media
       if (image) {
         media = document.createElement('img')
-        media.classList.add('media')
       } else {
         media = document.createElement('video')
         media.setAttribute('width', '100%')
         media.setAttribute('height', '90%')
         media.setAttribute('type', 'video/mp4')
       }
-
+      media.classList.add('media')
       media.setAttribute('src', source)
       media.setAttribute('alt', title)
       return media
@@ -51,6 +50,7 @@ module.exports = {
     const getPhotographMediaDOM = () => {
       const allPhotographMedia = document.getElementById('photographMedias')
       const article = document.createElement('article')
+      article.classList.remove('active')
       const articleInfo = document.createElement('div')
       articleInfo.classList.add('articleInfo')
       const pTitle = document.createElement('p')
@@ -60,6 +60,7 @@ module.exports = {
       pTitle.textContent = `${title}`
       pLikes.textContent = `${likes}`
       const media = getMedia()
+      article.classList.add('active')
       article.appendChild(media)
       allPhotographMedia.appendChild(article)
       articleInfo.appendChild(pTitle)
