@@ -18,7 +18,7 @@ module.exports = {
       const h4 = document.createElement('h4')
       h4.textContent = tagline
       const prix = document.createElement('p')
-      prix.textContent = `${price}€/jour`
+      prix.textContent = `${price}€/jours`
       article.appendChild(img)
       article.appendChild(h2)
       article.appendChild(h3)

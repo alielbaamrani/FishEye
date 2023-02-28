@@ -1,3 +1,5 @@
+const { total, tagLine } = require('../utils/domLinker')
+
 module.exports = {
   create (data) {
     const { photographerId, name, city, country, tagline, portrait, title, image, video, likes, date, price } = data
@@ -28,6 +30,7 @@ module.exports = {
       const modalSub = document.querySelector('.modalSub')
       const photographName = document.querySelector('.photographName')
       photographName.textContent = `Contactez-moi ${name}`
+
       modalSub.appendChild(photographName)
     }
 
@@ -50,17 +53,40 @@ module.exports = {
     const getPhotographMediaDOM = () => {
       const allPhotographMedia = document.getElementById('photographMedias')
       const article = document.createElement('article')
-      article.classList.remove('active')
       const articleInfo = document.createElement('div')
       articleInfo.classList.add('articleInfo')
       const pTitle = document.createElement('p')
       const pLikes = document.createElement('p')
+      pLikes.setAttribute('class', 'likes eventLikes')
       const love = document.createElement('i')
       love.classList.add('fa-solid', 'fa-heart')
       pTitle.textContent = `${title}`
       pLikes.textContent = `${likes}`
+      tagLine.textContent = `${price}€/jours`
+
+      const displayTotalLikes = () => {
+        let totalLikes = 0
+        const likes = document.querySelectorAll('.likes')
+        likes.forEach(like => totalLikes += parseInt(like.textContent))
+        total.textContent = totalLikes
+      }
+
+      pLikes.addEventListener('click', () => {
+        let calcul = 0
+        if (pLikes.classList.contains('eventLikes')) {
+          pLikes.classList.toggle('eventLikes')
+          calcul = +1
+        } else if (pLikes.classList.contains('likes')) {
+          pLikes.classList.toggle('eventLikes')
+
+          calcul = -1
+        }
+        pLikes.textContent = parseInt(pLikes.textContent) + calcul
+        pLikes.appendChild(love)
+        displayTotalLikes()
+      })
+
       const media = getMedia()
-      article.classList.add('active')
       article.appendChild(media)
       allPhotographMedia.appendChild(article)
       articleInfo.appendChild(pTitle)
@@ -71,6 +97,6 @@ module.exports = {
       return media
     }
 
-    return { photographerId, name, city, country, tagline, portrait, title, image, video, likes, date, price, getPhotographerCardDOM, getPhotographMediaDOM, getMedia }
+    return { photographerId, name, city, country, tagline, total, portrait, title, image, video, likes, date, getPhotographerCardDOM, getPhotographMediaDOM, getMedia }
   }
 }

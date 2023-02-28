@@ -1,4 +1,5 @@
 const axios = require('axios')
+const photographer = require('../pages/photographer')
 
 const url = 'src/data/photographers.json'
 
@@ -21,8 +22,6 @@ const getPhotographerById = id => getPhotographers().then(photographers => photo
  */
 const getMedias = () => axios.get(url).then(response => response.data.media)
 
-console.log(getMedias)
-
 /**
  * Get medias in function of photographerId in param
  *
@@ -31,11 +30,10 @@ console.log(getMedias)
  */
 const getMediaByPhotographerId = id => getMedias().then(medias => medias.filter(media => media.photographerId === id))
 
-const getMediaByPhotographerByLike = id => getMediaByPhotographerId().then(medias => medias.filter(media => media.likes === id))
-
+// const getPhotographerPrice = () => getPhotographerById().then(photographers => photographers.find(photographer => photographer.price))
 module.exports = {
   getPhotographers,
   getPhotographerById,
-  getMediaByPhotographerId,
-  getMediaByPhotographerByLike
+  getMediaByPhotographerId
+ // getPhotographerPrice
 }

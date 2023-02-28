@@ -12,6 +12,30 @@ header {
   padding-top: 10px;
 }
 
+#totalLikes {
+  position: fixed;
+  height: 70px;
+  width: 250px;
+  border-radius: 5px;
+  bottom: 0;
+  right: 30px;
+  z-index: 2;
+  background-color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+
+  #total {
+    text-align: center;
+  }
+
+  .totalbis {
+    display: flex;
+    align-items: center;
+  }
+}
+
 #photographCardInfo {
   display: flex;
   align-items: center;
@@ -51,12 +75,12 @@ header {
 }
 
 .contactButton {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
   color: white;
   padding: 11px;
-  width: 170px;
-  height: 70px;
+  width: 160px;
+  height: 60px;
   border: none;
   background-color: #901c1c;
   border-radius: 5px;

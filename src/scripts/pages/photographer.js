@@ -1,7 +1,7 @@
 const factoryPhotographer = require('../factories/createDataPhotographMedia')
 
-const { getPhotographerById, getMediaByPhotographerId } = require('../components/api')
-const { lightbox, lightboxContainer, lightboxClose, previous, next } = require('../utils/domLinker')
+const { getPhotographerById, getMediaByPhotographerId, getPhotographerPrice } = require('../components/api')
+const { lightbox, lightboxContainer, lightboxClose, previous, next, photographMedias, total } = require('../utils/domLinker')
 const { previousMedia, nextMedia } = require('../utils/lightbox')
 const state = require('../components/state')
 
@@ -10,9 +10,21 @@ const displayData = async photographer => {
   photographerCardModel.getPhotographerCardDOM()
 }
 
+const displayTotalLikes = () => {
+  let totalLikes = 0
+  const likes = document.querySelectorAll('.likes')
+  likes.forEach(like => totalLikes += parseInt(like.textContent))
+  total.textContent = totalLikes
+}
+
 // Medias by getPhotographMedia
 
 const displayDataMedias = async datas => {
+  // Remove all first child from an element
+  while (photographMedias.firstChild) {
+    photographMedias.removeChild(photographMedias.firstChild)
+  }
+
   datas.forEach(data => {
     const mediaModel = factoryPhotographer.create(data)
     const media = mediaModel.getPhotographMediaDOM()
@@ -30,12 +42,15 @@ const displayDataMedias = async datas => {
       lightboxContainer.appendChild(mediaModel.getMedia())
     })
   })
+
+  displayTotalLikes()
 }
 
 module.exports = id => {
   const init = async () => {
     // Récupère les data by PhotographerId
     const photographerId = await getPhotographerById(parseInt(id))
+    //  const photographerPrice = await getPhotographerPrice(parseInt(id))
     displayData(photographerId)
     // Récupere les data by getMediaByPhotographerId
     const medias = await getMediaByPhotographerId(parseInt(id))
@@ -46,22 +61,19 @@ module.exports = id => {
     const populaire = document.querySelector('.populaire')
     populaire.addEventListener('click', () => {
       const mediaByLikes = medias.sort((a, b) => { return b.likes - a.likes })
-      //    displayDataMedias(mediaByLikes)
-      console.log(mediaByLikes)
+      displayDataMedias(mediaByLikes)
     })
     // trier par date
     const date = document.querySelector('.date')
     date.addEventListener('click', () => {
-      const mediaByDate = medias.sort((a, b) => { return b.date - a.date })
-      //     displayDataMedias(mediaByDate)
-      console.log(mediaByDate)
+      const mediaByDate = medias.sort((a, b) => { return new Date(b.date) - new Date(a.date) })
+      displayDataMedias(mediaByDate)
     })
     // trier par title
     const title = document.querySelector('.title')
     title.addEventListener('click', () => {
-      const mediaByTitle = medias.sort((a, b) => { return a.title - b.title })
-      //     displayDataMedias(mediaByDate)
-      console.log(mediaByTitle)
+      const mediaByTitle = medias.sort((a, b) => { return a.title > b.title })
+      displayDataMedias(mediaByTitle)
     })
 
     lightboxClose.addEventListener('click', () => lightbox.style.display = 'none')

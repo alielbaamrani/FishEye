@@ -8,11 +8,16 @@ module.exports = {
   nom: document.getElementById('nom'),
   email: document.getElementById('email'),
   message: document.getElementById('message'),
-
+  // Medias
+  photographMedias: document.getElementById('photographMedias'),
   // Lightbox
   lightboxContainer: document.getElementById('lightbox-container'),
   lightbox: document.getElementById('lightbox'),
   lightboxClose: document.getElementById('lightbox-close'),
   previous: document.getElementById('previous'),
-  next: document.getElementById('next')
+  next: document.getElementById('next'),
+  // Likes
+  totalLikesId: document.getElementById('totalLikes'),
+  tagLine: document.querySelector('.tagline'),
+  total: document.getElementById('total')
 }
