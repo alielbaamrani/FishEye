@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "build": "webpack",
-    "start": "cross-env NODE_ENV='development' webpack-dev-server --progress --color --open --config webpack.config.js --mode development"
+    "start": "cross-env NODE_ENV='development' webpack-dev-server --progress --color --open --config webpack.config.js --mode development",
+    "lint-fix": "eslint --ext .js src --fix",
+    "lint": "eslint --ext .js src"
   },
 
   "author": "El Baamrani Ali",

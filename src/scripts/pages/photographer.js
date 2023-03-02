@@ -1,7 +1,7 @@
 const factoryPhotographer = require('../factories/createDataPhotographMedia')
 
 const { getPhotographerById, getMediaByPhotographerId } = require('../components/api')
-const { lightbox, lightboxContainer, lightboxClose, previous, next, photographMedias, total, tagLine, totalLikesId, titleMedia } = require('../utils/domLinker')
+const { lightbox, lightboxContainer, lightboxClose, previous, next, photographMedias, total, tagLine, totalLikesId } = require('../utils/domLinker')
 const { previousMedia, nextMedia, closeLightbox } = require('../utils/lightbox')
 const state = require('../components/state')
 
@@ -13,7 +13,9 @@ const displayData = async photographer => {
 const displayTotalLikes = () => {
   let totalLikes = 0
   const likes = document.querySelectorAll('.likes')
-  likes.forEach(like => totalLikes += parseInt(like.textContent))
+  likes.forEach(like => {
+    totalLikes += parseInt(like.textContent)
+  })
   total.textContent = totalLikes
 }
 

@@ -66,7 +66,9 @@ module.exports = {
       const displayTotalLikes = () => {
         let totalLikes = 0
         const likes = document.querySelectorAll('.likes')
-        likes.forEach(like => totalLikes += parseInt(like.textContent))
+        likes.forEach(like => {
+          totalLikes += parseInt(like.textContent)
+        })
         total.textContent = totalLikes
       }
 
