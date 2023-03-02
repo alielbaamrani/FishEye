@@ -1,7 +1,7 @@
 const factoryPhotographer = require('../factories/createDataPhotographMedia')
 
 const { getPhotographerById, getMediaByPhotographerId } = require('../components/api')
-const { lightbox, lightboxContainer, lightboxClose, previous, next, photographMedias, total, tagLine, totalLikesId } = require('../utils/domLinker')
+const { lightbox, lightboxContainer, lightboxClose, previous, next, photographMedias, total, tagLine, totalLikesId, titleMedia } = require('../utils/domLinker')
 const { previousMedia, nextMedia, closeLightbox } = require('../utils/lightbox')
 const state = require('../components/state')
 
@@ -39,6 +39,7 @@ const displayDataMedias = async datas => {
       state.currentMedia = data
 
       lightbox.style.display = 'block'
+
       lightboxContainer.appendChild(mediaModel.getMedia())
       totalLikesId.style.opacity = '0'
     })

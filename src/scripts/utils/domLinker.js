@@ -16,7 +16,7 @@ module.exports = {
   lightboxClose: document.getElementById('lightbox-close'),
   previous: document.getElementById('previous'),
   next: document.getElementById('next'),
-  titleMedia: document.getElementById('totalMedia'),
+  titleMedia: document.getElementById('titleMedia'),
   // Likes
   totalLikesId: document.getElementById('totalLikes'),
   tagLine: document.querySelector('.tagline'),

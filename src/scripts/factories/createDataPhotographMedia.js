@@ -40,7 +40,7 @@ module.exports = {
         media = document.createElement('img')
       } else {
         media = document.createElement('video', 'controls')
-        media.setAttribute('width', '100%')
+        media.setAttribute('width', '90%')
         media.setAttribute('height', '90%')
         media.setAttribute('type', 'video/mp4')
       }

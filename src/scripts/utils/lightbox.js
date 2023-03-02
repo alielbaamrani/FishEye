@@ -1,4 +1,4 @@
-const { lightboxContainer, lightbox, totalLikesId } = require('./domLinker')
+const { lightboxContainer, lightbox, totalLikesId, titleMedia } = require('./domLinker')
 const factoryPhotographer = require('../factories/createDataPhotographMedia')
 const state = require('../components/state')
 
@@ -10,10 +10,12 @@ const previousMedia = datas => {
 
   const currentIndex = datas.indexOf(state.currentMedia)
   const newMedia = currentIndex === 0 ? datas[datas.length - 1] : datas[currentIndex - 1]
-  console.log(newMedia)
   const mediaModel = factoryPhotographer.create(newMedia)
   lightboxContainer.appendChild(mediaModel.getMedia())
   state.currentMedia = newMedia
+  titleMedia.textContent = newMedia.title
+
+  console.log(newMedia.title)
 }
 
 const nextMedia = datas => {
@@ -24,10 +26,12 @@ const nextMedia = datas => {
 
   const currentIndex = datas.indexOf(state.currentMedia)
   const newMedia = currentIndex === (datas.length - 1) ? datas[0] : datas[currentIndex + 1]
-  console.log(newMedia)
   const mediaModel = factoryPhotographer.create(newMedia)
   lightboxContainer.appendChild(mediaModel.getMedia())
   state.currentMedia = newMedia
+  titleMedia.textContent = newMedia.title
+
+  console.log(newMedia.title)
 }
 
 const closeLightbox = () => {
