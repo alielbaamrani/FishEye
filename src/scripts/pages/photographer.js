@@ -1,8 +1,8 @@
 const factoryPhotographer = require('../factories/createDataPhotographMedia')
 
-const { getPhotographerById, getMediaByPhotographerId, getPhotographerPrice } = require('../components/api')
-const { lightbox, lightboxContainer, lightboxClose, previous, next, photographMedias, total } = require('../utils/domLinker')
-const { previousMedia, nextMedia } = require('../utils/lightbox')
+const { getPhotographerById, getMediaByPhotographerId } = require('../components/api')
+const { lightbox, lightboxContainer, lightboxClose, previous, next, photographMedias, total, tagLine, totalLikesId } = require('../utils/domLinker')
+const { previousMedia, nextMedia, closeLightbox } = require('../utils/lightbox')
 const state = require('../components/state')
 
 const displayData = async photographer => {
@@ -40,6 +40,7 @@ const displayDataMedias = async datas => {
 
       lightbox.style.display = 'block'
       lightboxContainer.appendChild(mediaModel.getMedia())
+      totalLikesId.style.opacity = '0'
     })
   })
 
@@ -47,10 +48,16 @@ const displayDataMedias = async datas => {
 }
 
 module.exports = id => {
+  const getPhotographPrice = async () => {
+    const photographerId = await getPhotographerById(parseInt(id))
+    const photographerPrice = photographerId.price
+    tagLine.textContent = photographerPrice + '€ /jour'
+  }
+  getPhotographPrice()
+
   const init = async () => {
     // Récupère les data by PhotographerId
     const photographerId = await getPhotographerById(parseInt(id))
-    //  const photographerPrice = await getPhotographerPrice(parseInt(id))
     displayData(photographerId)
     // Récupere les data by getMediaByPhotographerId
     const medias = await getMediaByPhotographerId(parseInt(id))
@@ -76,9 +83,28 @@ module.exports = id => {
       displayDataMedias(mediaByTitle)
     })
 
-    lightboxClose.addEventListener('click', () => lightbox.style.display = 'none')
+    lightboxClose.addEventListener('click', () => closeLightbox())
     previous.addEventListener('click', () => previousMedia(medias))
     next.addEventListener('click', () => nextMedia(medias))
+
+    // previousMedia with arrowLeft
+    document.addEventListener('keydown', e => {
+      if (e.key.toLowerCase() === 'arrowleft') {
+        previousMedia(medias)
+      }
+    })
+    // nextMedia with arrowRight
+    document.addEventListener('keydown', e => {
+      if (e.key.toLowerCase() === 'arrowright') {
+        nextMedia(medias)
+      }
+    })
+    // CloseMedia with escapeKey
+    document.addEventListener('keydown', e => {
+      if (e.key.toLowerCase() === 'escape') {
+        closeLightbox()
+      }
+    })
   }
 
   init()

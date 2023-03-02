@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <link
@@ -14,28 +14,29 @@
   </head>
 
   <body>
+    <!-- Modal de contact -->
     <div id="contactModal">
       <div class="modal">
         <div class="modalSub">
           <h2 class="photographName">Contactez-moi</h2>
-          <img class="closeModal" src="../assets/icons/close.svg" />
+          <img class="closeModal" src="../assets/icons/close.svg" alt="close" />
         </div>
         <form id="form-contact">
           <div>
             <label>Prénom</label>
-            <input id="prenom" />
+            <input id="prenom" aria-label="prenom" />
           </div>
           <div>
             <label>nom</label>
-            <input id="nom" />
+            <input id="nom" aria-label="nom" />
           </div>
           <div>
             <label>email</label>
-            <input id="email" />
+            <input id="email" aria-label="email" />
           </div>
           <div>
             <label>Votre message</label>
-            <textarea id="message"></textarea>
+            <textarea id="message" aria-label="message"></textarea>
           </div>
           <input type="submit" value="Envoyer" class="contactSend" />
         </form>
@@ -49,6 +50,32 @@
     </header>
 
     <main id="main">
+<!-- bandeau de presentation du photographe avec button de contact  -->
+      <div id="photographCardInfo">
+        <button class="contactButton">Contactez-moi</button>
+      </div>
+<!-- Dropdown des filtres  -->
+      <div id="filter">
+        <p>Trier par</p>
+        <div id="filters">
+          <div class="dropdown">
+            <div class="select">
+              <span class="selected">Populaire</span>
+              <div class="caret"></div>
+            </div>
+          
+          <ul class="menu">
+            <li class="active populaire">Populaire</li>
+            <li class="date">Date</li>
+            <li class="title">Titre</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+<!-- infoBar  -->
+      <!-- Medias des photographes  -->
+      <div id="photographMedias"></div>
+      <!-- total des like & tagline  -->
       <div id="totalLikes">
         <div class="totalbis">
           <p id="total"></p>
@@ -56,37 +83,22 @@
         </div>
         <p class="tagline"></p>
       </div>
-      <div id="photographCardInfo">
-        <button class="contactButton">Contactez-moi</button>
-      </div>
-
-      <div id="filter">
-        <p>Trier par </p>
-        <div id="filters">
-            <select name="" id="filter-select">
-            <option class="populaire" value="populaire">populaire</option>
-            <option class="date" value="date">date</option>
-            <option class="title" value="title">Titre</option>
-          </select>
-
-         </div>
-        </div>
-      </div>
-
-      <div id="infoBar"></div>
-      <div id="photographMedias"></div>
     </main>
+
+    <!-- Lightbox  -->
     <div id="lightbox" class="lightbox">
-      <button id="lightbox-close" class="lightbox__close">
+      <button id="lightbox-close" class="lightbox__close" aria-label="lightbox close">
         <i class="fa-solid fa-xmark"></i>
       </button>
-      <button id="next" class="lightbox__next">
+      <button id="next" class="lightbox__next" aria-label="lightbox next">
         <i class="fa-solid fa-chevron-right"></i>
       </button>
-      <button id="previous" class="lightbox__prev">
+      <button id="previous" class="lightbox__prev" aria-label="lighbox previous">
         <i class="fa-solid fa-chevron-left"></i>
       </button>
-      <div id="lightbox-container" class="lightbox__container"></div>
+      <h2 id="titleMedia">test</h2>
+      <div id="lightbox-container" class="lightbox__container">
+      </div>
     </div>
   </body>
 </html>

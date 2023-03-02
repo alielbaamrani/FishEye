@@ -10,6 +10,7 @@ if (id !== null) {
   console.log('id:', id)
   require('./scripts/pages/photographer')(id)
   require('./scripts/utils/contactForm.js')
+  require('./scripts/utils/filter.js')
 } else {
   // By default load home page
   require('./scripts/pages/index')

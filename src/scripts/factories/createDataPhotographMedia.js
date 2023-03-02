@@ -1,8 +1,8 @@
-const { total, tagLine } = require('../utils/domLinker')
+const { total } = require('../utils/domLinker')
 
 module.exports = {
   create (data) {
-    const { photographerId, name, city, country, tagline, portrait, title, image, video, likes, date, price } = data
+    const { photographerId, name, city, country, tagline, portrait, title, image, video, likes, date } = data
 
     const picture = `/src/assets/photographers/${portrait}`
     const source = `/src/assets/medias/${image || video}`
@@ -39,7 +39,7 @@ module.exports = {
       if (image) {
         media = document.createElement('img')
       } else {
-        media = document.createElement('video')
+        media = document.createElement('video', 'controls')
         media.setAttribute('width', '100%')
         media.setAttribute('height', '90%')
         media.setAttribute('type', 'video/mp4')
@@ -62,7 +62,6 @@ module.exports = {
       love.classList.add('fa-solid', 'fa-heart')
       pTitle.textContent = `${title}`
       pLikes.textContent = `${likes}`
-      tagLine.textContent = `${price}€/jours`
 
       const displayTotalLikes = () => {
         let totalLikes = 0
