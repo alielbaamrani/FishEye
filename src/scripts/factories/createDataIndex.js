@@ -19,6 +19,7 @@ module.exports = {
       h4.textContent = tagline
       const prix = document.createElement('p')
       prix.textContent = `${price}€/jours`
+      article.setAttribute('arial-label', `${name}`)
       article.appendChild(img)
       article.appendChild(h2)
       article.appendChild(h3)

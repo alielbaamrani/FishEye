@@ -15,6 +15,8 @@ module.exports = {
       photographImg.classList.add('photographImg')
       photographImg.setAttribute('src', picture)
       photographImg.setAttribute('alt', `${name}`)
+      photographImg.setAttribute('arial-label', 'open-lightbox')
+
       const h2 = document.createElement('h2')
       h2.textContent = name
       const h3 = document.createElement('h3')
@@ -39,10 +41,11 @@ module.exports = {
       if (image) {
         media = document.createElement('img')
       } else {
-        media = document.createElement('video', 'controls')
+        media = document.createElement('video')
+        media.setAttribute('type', 'video/mp4')
         media.setAttribute('width', '90%')
         media.setAttribute('height', '90%')
-        media.setAttribute('type', 'video/mp4')
+        media.setAttribute('controls', 'controls')
       }
       media.classList.add('media')
       media.setAttribute('src', source)
@@ -58,6 +61,7 @@ module.exports = {
       const pTitle = document.createElement('p')
       const pLikes = document.createElement('p')
       pLikes.setAttribute('class', 'likes eventLikes')
+      pLikes.setAttribute('arial-label', 'likes')
       const love = document.createElement('i')
       love.classList.add('fa-solid', 'fa-heart')
       pTitle.textContent = `${title}`
@@ -89,6 +93,7 @@ module.exports = {
 
       const media = getMedia()
       article.appendChild(media)
+      article.setAttribute('arial-label', 'open lightbox')
       allPhotographMedia.appendChild(article)
       articleInfo.appendChild(pTitle)
       articleInfo.appendChild(pLikes)

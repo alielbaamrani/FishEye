@@ -13,48 +13,60 @@
     <title>Fisheye - photographe</title>
   </head>
 
-  <body>
+  <body id="body">
     <!-- Modal de contact -->
-    <div id="contactModal">
-      <div class="modal">
-        <div class="modalSub">
-          <h2 class="photographName">Contactez-moi</h2>
-          <img class="closeModal" src="../assets/icons/close.svg" alt="close" />
+    <div id="modalbackground">
+      <div id="contactModal">
+        <div class="modal">
+          <div class="modalSub">
+            <h2 class="photographName">Contactez-moi</h2>
+            <img
+              class="closeModal"
+              src="../assets/icons/close.svg"
+              alt="close"
+            />
+          </div>
+          <form id="form-contact">
+            <div>
+              <label>Prénom</label>
+              <input id="prenom" aria-label="prenom" />
+            </div>
+            <div>
+              <label>nom</label>
+              <input id="nom" aria-label="nom" />
+            </div>
+            <div>
+              <label>email</label>
+              <input id="email" aria-label="email" />
+            </div>
+            <div>
+              <label>Votre message</label>
+              <textarea id="message" aria-label="message"></textarea>
+            </div>
+            <input type="submit" value="Envoyer" class="contactSend" />
+          </form>
         </div>
-        <form id="form-contact">
-          <div>
-            <label>Prénom</label>
-            <input id="prenom" aria-label="prenom" />
-          </div>
-          <div>
-            <label>nom</label>
-            <input id="nom" aria-label="nom" />
-          </div>
-          <div>
-            <label>email</label>
-            <input id="email" aria-label="email" />
-          </div>
-          <div>
-            <label>Votre message</label>
-            <textarea id="message" aria-label="message"></textarea>
-          </div>
-          <input type="submit" value="Envoyer" class="contactSend" />
-        </form>
       </div>
     </div>
 
     <header>
-      <a href="./index.html">
-        <img src="../assets/images/logo.png" alt="logo" class="logo" />
+      <a href="./index.html" aria-label="Fisheye Home Page">
+        <img
+          src="../assets/images/logo.png"
+          alt="Fisheye Home Page"
+          class="logo"
+        />
       </a>
     </header>
 
     <main id="main">
-<!-- bandeau de presentation du photographe avec button de contact  -->
+      <!-- bandeau de presentation du photographe avec button de contact  -->
       <div id="photographCardInfo">
-        <button class="contactButton">Contactez-moi</button>
+        <button class="contactButton" aria-label="contact me">
+          Contactez-moi
+        </button>
       </div>
-<!-- Dropdown des filtres  -->
+      <!-- Dropdown des filtres  -->
       <div id="filter">
         <p>Trier par</p>
         <div id="filters">
@@ -63,16 +75,16 @@
               <span class="selected">Populaire</span>
               <div class="caret"></div>
             </div>
-          
-          <ul class="menu">
-            <li class="active populaire">Populaire</li>
-            <li class="date">Date</li>
-            <li class="title">Titre</li>
-          </ul>
+
+            <ul class="menu">
+              <li class="active populaire">Populaire</li>
+              <li class="date">Date</li>
+              <li class="title">Titre</li>
+            </ul>
+          </div>
         </div>
       </div>
-      </div>
-<!-- infoBar  -->
+      <!-- infoBar  -->
       <!-- Medias des photographes  -->
       <div id="photographMedias"></div>
       <!-- total des like & tagline  -->
@@ -87,17 +99,22 @@
 
     <!-- Lightbox  -->
     <div id="lightbox" class="lightbox">
-      <button id="lightbox-close" class="lightbox__close" aria-label="lightbox close">
+      <button
+        id="lightbox-close"
+        class="lightbox__close"
+        aria-label=" close lightbox"
+      >
         <i class="fa-solid fa-xmark"></i>
       </button>
-      <button id="next" class="lightbox__next" aria-label="lightbox next">
+      <button id="next" class="lightbox__next" aria-label="Next image">
         <i class="fa-solid fa-chevron-right"></i>
       </button>
-      <button id="previous" class="lightbox__prev" aria-label="lighbox previous">
+      <button id="previous" class="lightbox__prev" aria-label=" previous image">
         <i class="fa-solid fa-chevron-left"></i>
       </button>
       <p id="titleMedia"></p>
       <div id="lightbox-container" class="lightbox__container">
+        <p id="titleMedia"></p>
       </div>
     </div>
   </body>

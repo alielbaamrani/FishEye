@@ -8,6 +8,7 @@ module.exports = {
   nom: document.getElementById('nom'),
   email: document.getElementById('email'),
   message: document.getElementById('message'),
+  modalbackground: document.getElementById('modalbackground'),
   // Medias
   photographMedias: document.getElementById('photographMedias'),
   // Lightbox
@@ -17,8 +18,10 @@ module.exports = {
   previous: document.getElementById('previous'),
   next: document.getElementById('next'),
   titleMedia: document.getElementById('titleMedia'),
+  body: document.getElementById('body'),
   // Likes
   totalLikesId: document.getElementById('totalLikes'),
   tagLine: document.querySelector('.tagline'),
   total: document.getElementById('total')
+
 }

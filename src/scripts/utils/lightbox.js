@@ -1,4 +1,4 @@
-const { lightboxContainer, lightbox, totalLikesId, titleMedia } = require('./domLinker')
+const { lightboxContainer, lightbox, totalLikesId, titleMedia, body } = require('./domLinker')
 const factoryPhotographer = require('../factories/createDataPhotographMedia')
 const state = require('../components/state')
 
@@ -37,6 +37,7 @@ const nextMedia = datas => {
 const closeLightbox = () => {
   lightbox.style.display = 'none'
   totalLikesId.style.opacity = '1'
+  body.style.overflow = 'auto'
 }
 
 module.exports = {

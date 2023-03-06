@@ -32,7 +32,7 @@
   height: 28px;
   color: var(--primary-color);
   position: fixed;
-  right: 20px;
+  right: 45px;
   top: 50%;
   margin-top: -14px;
   z-index: 11;
@@ -41,7 +41,7 @@
 }
 
 .lightbox__prev {
-  left: 0;
+  left: 45px;
 }
 
 .lightbox__container {
@@ -49,11 +49,10 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-
-  img {
-    // display: none;
-    width: 40%;
-    height: auto;
+  width: 100%;
+  .media {
+    object-fit: cover;
+    max-height: 750px;
   }
 }
 
