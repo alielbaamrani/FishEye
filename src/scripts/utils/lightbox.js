@@ -14,6 +14,8 @@ const previousMedia = datas => {
   lightboxContainer.appendChild(mediaModel.getMedia())
   state.currentMedia = newMedia
   titleMedia.textContent = newMedia.title
+  const mediasVideo = document?.querySelector('.lightbox__container video')
+  mediasVideo?.setAttribute('controls', 'controls')
 
   console.log(newMedia.title)
 }
@@ -30,6 +32,8 @@ const nextMedia = datas => {
   lightboxContainer.appendChild(mediaModel.getMedia())
   state.currentMedia = newMedia
   titleMedia.textContent = newMedia.title
+  const mediasVideo = document?.querySelector('.lightbox__container video')
+  mediasVideo?.setAttribute('controls', 'controls')
 
   console.log(newMedia.title)
 }

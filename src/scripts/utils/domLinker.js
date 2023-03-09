@@ -11,6 +11,7 @@ module.exports = {
   modalbackground: document.getElementById('modalbackground'),
   // Medias
   photographMedias: document.getElementById('photographMedias'),
+  mediasVideo: document.querySelector('.mediasVideo'),
   // Lightbox
   lightboxContainer: document.getElementById('lightbox-container'),
   lightbox: document.getElementById('lightbox'),

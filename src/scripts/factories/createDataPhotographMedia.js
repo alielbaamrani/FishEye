@@ -36,7 +36,7 @@ module.exports = {
       modalSub.appendChild(photographName)
     }
 
-    const getMedia = () => {
+    const getMedia = (isLightbox = false) => {
       let media
       if (image) {
         media = document.createElement('img')
@@ -45,7 +45,9 @@ module.exports = {
         media.setAttribute('type', 'video/mp4')
         media.setAttribute('width', '90%')
         media.setAttribute('height', '90%')
-        media.setAttribute('controls', 'controls')
+        if (isLightbox) {
+          media.setAttribute('controls', 'controls')
+        }
       }
       media.classList.add('media')
       media.setAttribute('src', source)
@@ -55,7 +57,8 @@ module.exports = {
 
     const getPhotographMediaDOM = () => {
       const allPhotographMedia = document.getElementById('photographMedias')
-      const article = document.createElement('article')
+      const a = document.createElement('a')
+      const article = document.createElement('a')
       const articleInfo = document.createElement('div')
       articleInfo.classList.add('articleInfo')
       const pTitle = document.createElement('p')
@@ -92,8 +95,10 @@ module.exports = {
       })
 
       const media = getMedia()
+      a.appendChild(article)
+      article.setAttribute('href', '#')
       article.appendChild(media)
-      article.setAttribute('arial-label', 'open lightbox')
+      article.setAttribute('arial-label', 'ouvre la vue lightbox')
       allPhotographMedia.appendChild(article)
       articleInfo.appendChild(pTitle)
       articleInfo.appendChild(pLikes)
