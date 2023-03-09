@@ -7,6 +7,7 @@ module.exports = {
     const picture = `/src/assets/photographers/${portrait}`
     const source = `/src/assets/medias/${image || video}`
 
+    // creation de la section photographCardInfo
     const getPhotographerCardDOM = () => {
       const photographCardInfo = document.getElementById('photographCardInfo')
       const info = document.createElement('div')
@@ -29,15 +30,17 @@ module.exports = {
       photographCardInfo.prepend(info)
       photographCardInfo.appendChild(photographImg)
 
+      // afficher le nom du photograph dans la modal de contact
+
       const modalSub = document.querySelector('.modalSub')
       const photographName = document.querySelector('.photographName')
       photographName.textContent = `Contactez-moi ${name}`
-
       modalSub.appendChild(photographName)
     }
-
+    // creation de getmedia afin d'afficher les medias dans la gallerie ainsi que dans la lightbox
     const getMedia = (isLightbox = false) => {
       let media
+      // verification image / video
       if (image) {
         media = document.createElement('img')
       } else {
@@ -54,11 +57,12 @@ module.exports = {
       media.setAttribute('alt', title)
       return media
     }
-
+    // creation de la gallerie photo
     const getPhotographMediaDOM = () => {
       const allPhotographMedia = document.getElementById('photographMedias')
       const a = document.createElement('a')
-      const article = document.createElement('a')
+      a.setAttribute('href', '#')
+      const article = document.createElement('article')
       const articleInfo = document.createElement('div')
       articleInfo.classList.add('articleInfo')
       const pTitle = document.createElement('p')
@@ -69,7 +73,7 @@ module.exports = {
       love.classList.add('fa-solid', 'fa-heart')
       pTitle.textContent = `${title}`
       pLikes.textContent = `${likes}`
-
+      // gestion de l'affichage du total de likes
       const displayTotalLikes = () => {
         let totalLikes = 0
         const likes = document.querySelectorAll('.likes')
@@ -78,7 +82,7 @@ module.exports = {
         })
         total.textContent = totalLikes
       }
-
+      // gestion de l'incrementation des likes
       pLikes.addEventListener('click', () => {
         let calcul = 0
         if (pLikes.classList.contains('eventLikes')) {
@@ -93,16 +97,15 @@ module.exports = {
         pLikes.appendChild(love)
         displayTotalLikes()
       })
-
+      // recuperation de media
       const media = getMedia()
-      a.appendChild(article)
-      article.setAttribute('href', '#')
-      article.appendChild(media)
+      a.appendChild(media)
       article.setAttribute('arial-label', 'ouvre la vue lightbox')
       allPhotographMedia.appendChild(article)
       articleInfo.appendChild(pTitle)
       articleInfo.appendChild(pLikes)
       pLikes.appendChild(love)
+      article.appendChild(a)
       article.appendChild(articleInfo)
 
       return media

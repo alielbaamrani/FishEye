@@ -1,5 +1,7 @@
 const { contactModal, contactButton, closeModal, formContact, prenom, nom, email, message } = require('./domLinker')
 
+// creation des evenements
+
 contactButton.addEventListener('click', () => displayModal())
 closeModal.addEventListener('click', () => closeForm())
 formContact.addEventListener('submit', e => formResult(e))

@@ -2,8 +2,9 @@ module.exports = {
   create (data) {
     const { name, city, portrait, tagline, price, country, id } = data
 
-    const picture = `/src/assets/photographers/${portrait}`
+    // creation des profils des photographes avec leurs données
 
+    const picture = `/src/assets/photographers/${portrait}`
     const getUserCardDOM = () => {
       const a = document.createElement('a')
       a.setAttribute('href', `photographer.html?id=${id}`)

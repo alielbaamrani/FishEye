@@ -22,7 +22,7 @@ const displayTotalLikes = () => {
 // Medias by getPhotographMedia
 
 const displayDataMedias = async datas => {
-  // Remove all first child from an element
+  // Supprimer tout les element enfants afin de ne pas dupliquer les medias
   while (photographMedias.firstChild) {
     photographMedias.removeChild(photographMedias.firstChild)
   }
@@ -50,6 +50,7 @@ const displayDataMedias = async datas => {
 }
 
 module.exports = id => {
+  // recuperer la donnée 'prix' de chaque photographes par leurs ID
   const getPhotographPrice = async () => {
     const photographerId = await getPhotographerById(parseInt(id))
     const photographerPrice = photographerId.price
