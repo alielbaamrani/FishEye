@@ -28,26 +28,22 @@
           </div>
           <form id="form-contact">
             <div>
-              <label>Prénom</label>
-              <input id="prenom" aria-label="prenom" />
+              <label for="prenom">Prénom</label>
+              <input type="text" id="prenom" aria-label="prenom" />
             </div>
             <div>
-              <label>nom</label>
+              <label for="nom">nom</label>
               <input id="nom" aria-label="nom" />
             </div>
             <div>
-              <label>email</label>
-              <input id="email" aria-label="email" />
+              <label for="email">email</label>
+              <input type="email" id="email" aria-label="email" />
             </div>
             <div>
-              <label>Votre message</label>
+              <label for="message">Votre message</label>
               <textarea id="message" aria-label="message"></textarea>
             </div>
-            <input
-              type="submit"
-              value="Envoyer"
-              class="contactSend"
-            />
+            <input type="submit" value="Envoyer" class="contactSend" />
           </form>
         </div>
       </div>
@@ -117,9 +113,7 @@
         <i class="fa-solid fa-chevron-left"></i>
       </button>
       <p id="titleMedia"></p>
-      <div id="lightbox-container" class="lightbox__container">
-        <p id="titleMedia"></p>
-      </div>
+      <div id="lightbox-container" class="lightbox__container"></div>
     </div>
   </body>
 </html>

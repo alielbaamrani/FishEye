@@ -83,7 +83,8 @@ module.exports = {
         total.textContent = totalLikes
       }
       // gestion de l'incrementation des likes
-      pLikes.addEventListener('click', () => {
+      pLikes.addEventListener('click', e => {
+        e.preventDefault()
         let calcul = 0
         if (pLikes.classList.contains('eventLikes')) {
           pLikes.classList.toggle('eventLikes')
@@ -97,15 +98,19 @@ module.exports = {
         pLikes.appendChild(love)
         displayTotalLikes()
       })
+      // annulation de l'effet 'a' sur les titres des images
+      articleInfo.addEventListener('click', e => {
+        e.preventDefault()
+      })
       // recuperation de media
       const media = getMedia()
       a.appendChild(media)
       article.setAttribute('arial-label', 'ouvre la vue lightbox')
-      allPhotographMedia.appendChild(article)
+      allPhotographMedia.appendChild(a)
       articleInfo.appendChild(pTitle)
       articleInfo.appendChild(pLikes)
       pLikes.appendChild(love)
-      article.appendChild(a)
+      a.appendChild(article)
       article.appendChild(articleInfo)
 
       return media
