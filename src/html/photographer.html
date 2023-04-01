@@ -27,9 +27,9 @@
             />
           </div>
           <form id="form-contact">
-            <div>
+            <div tabindex="0">
               <label for="prenom">Prénom</label>
-              <input type="text" id="prenom" aria-label="prenom" />
+              <input tabindex=0 type="text" id="prenom" aria-label="prenom" />
             </div>
             <div>
               <label for="nom">nom</label>
@@ -112,8 +112,8 @@
       <button id="previous" class="lightbox__prev" aria-label=" previous image">
         <i class="fa-solid fa-chevron-left"></i>
       </button>
-      <p id="titleMedia"></p>
       <div id="lightbox-container" class="lightbox__container"></div>
+      <div class="divTitle"><p id="titleMedia"></p></div>
     </div>
   </body>
 </html>

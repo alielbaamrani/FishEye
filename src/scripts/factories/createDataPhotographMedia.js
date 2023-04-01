@@ -62,6 +62,7 @@ module.exports = {
       const allPhotographMedia = document.getElementById('photographMedias')
       const a = document.createElement('a')
       a.setAttribute('href', '#')
+
       const article = document.createElement('article')
       const articleInfo = document.createElement('div')
       articleInfo.classList.add('articleInfo')

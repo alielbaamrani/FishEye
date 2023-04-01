@@ -7,7 +7,6 @@ const url = 'src/data/photographers.json'
  * @returns Array of photographer object
  */
 const getPhotographers = () => axios.get(url).then(response => response.data.photographers)
-
 /**
  * Get photographer in function of id in param
  *
@@ -15,7 +14,9 @@ const getPhotographers = () => axios.get(url).then(response => response.data.pho
  * @returns Object of photographer
  */
 const getPhotographerById = id => getPhotographers().then(photographers => photographers.find(photographer => photographer.id === id))
+
 /**
+ *
  * Get all medias
  * @returns Array of media object
  */

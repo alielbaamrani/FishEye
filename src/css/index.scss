@@ -1,16 +1,23 @@
+.header-index {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+  padding: 0 11%;
+}
+
+.title {
+  margin: 0;
+}
+
 .photographer_section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 45px;
   margin-top: 55px;
 
-  header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 90px;
-  }
+
 
   a {
     text-decoration: none;

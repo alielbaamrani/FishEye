@@ -22,6 +22,7 @@ const previousMedia = datas => {
 
 const nextMedia = datas => {
   // Remove all first child from an element
+
   while (lightboxContainer.firstChild) {
     lightboxContainer.removeChild(lightboxContainer.firstChild)
   }
@@ -34,8 +35,6 @@ const nextMedia = datas => {
   titleMedia.textContent = newMedia.title
   const mediasVideo = document?.querySelector('.lightbox__container video')
   mediasVideo?.setAttribute('controls', 'controls')
-
-  console.log(newMedia.title)
 }
 
 const closeLightbox = () => {
