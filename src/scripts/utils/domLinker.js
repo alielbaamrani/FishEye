@@ -1,8 +1,8 @@
 module.exports = {
+  // MODAL CONTACT
   contactButton: document.querySelector('.contactButton'),
   contactModal: document.getElementById('contactModal'),
   closeModal: document.querySelector('.closeModal'),
-  // MODAL CONTACT
   formContact: document.getElementById('form-contact'),
   prenom: document.getElementById('prenom'),
   nom: document.getElementById('nom'),
@@ -20,6 +20,7 @@ module.exports = {
   next: document.getElementById('next'),
   titleMedia: document.getElementById('titleMedia'),
   body: document.getElementById('body'),
+  main: document.getElementById('main'),
   // Likes
   totalLikesId: document.getElementById('totalLikes'),
   tagLine: document.querySelector('.tagline'),

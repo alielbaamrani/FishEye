@@ -1,7 +1,7 @@
 const { total } = require('../utils/domLinker')
 
 module.exports = {
-  create (data) {
+  create(data) {
     const { photographerId, name, city, country, tagline, portrait, title, image, video, likes, date } = data
 
     const picture = `/src/assets/photographers/${portrait}`
@@ -114,7 +114,7 @@ module.exports = {
       a.appendChild(article)
       article.appendChild(articleInfo)
 
-      return media
+      return a
     }
 
     return { photographerId, name, city, country, tagline, total, portrait, title, image, video, likes, date, getPhotographerCardDOM, getPhotographMediaDOM, getMedia }

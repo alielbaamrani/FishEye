@@ -68,22 +68,21 @@ module.exports = id => {
     displayDataMedias(medias)
 
     // trier avant d'afficher les elements dans la displayDataMedias
-    const populaire = document.querySelector('.populaire')
-    populaire.addEventListener('click', () => {
-      const mediaByLikes = medias.sort((a, b) => { return b.likes - a.likes })
-      displayDataMedias(mediaByLikes)
-    })
-    // trier par date
-    const date = document.querySelector('.date')
-    date.addEventListener('click', () => {
-      const mediaByDate = medias.sort((a, b) => { return new Date(b.date) - new Date(a.date) })
-      displayDataMedias(mediaByDate)
-    })
-    // trier par title
-    const title = document.querySelector('.title')
-    title.addEventListener('click', () => {
-      const mediaByTitle = medias.sort((a, b) => { return a.title > b.title })
-      displayDataMedias(mediaByTitle)
+    const sortBy = document.getElementById('sort-by')
+
+    sortBy.addEventListener('change', e => {
+      let mediasToSort
+      switch (e.target.value) {
+        case 'date':
+          mediasToSort = medias.sort((a, b) => { return new Date(b.date) - new Date(a.date) })
+          break
+        case 'popular':
+          mediasToSort = medias.sort((a, b) => { return b.likes - a.likes })
+          break
+        case 'title':
+          mediasToSort = medias.sort((a, b) => { return a.title > b.title })
+      }
+      displayDataMedias(mediasToSort)
     })
 
     lightboxClose.addEventListener('click', () => closeLightbox())

@@ -1,4 +1,4 @@
-const { contactModal, contactButton, closeModal, formContact, prenom, nom, email, message } = require('./domLinker')
+const { main, contactModal, contactButton, closeModal, formContact, prenom, nom, email, message } = require('./domLinker')
 
 // creation des evenements
 
@@ -10,6 +10,9 @@ formContact.addEventListener('submit', e => formResult(e))
 
 const displayModal = () => {
   contactModal.style.display = 'block'
+  contactModal.setAttribute('aria-hidden', false)
+  main.setAttribute('aria-hidden', true)
+  closeModal.focus()
 }
 // fermer la modal avec Echap
 
@@ -22,6 +25,8 @@ document.addEventListener('keydown', e => {
 
 const closeForm = () => {
   contactModal.style.display = 'none'
+  contactModal.setAttribute('aria-hidden', true)
+  main.setAttribute('aria-hidden', false)
 }
 
 const formResult = e => {
