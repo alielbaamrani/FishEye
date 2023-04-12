@@ -1,7 +1,7 @@
 const { total } = require('../utils/domLinker')
 
 module.exports = {
-  create(data) {
+  create (data) {
     const { photographerId, name, city, country, tagline, portrait, title, image, video, likes, date } = data
 
     const picture = `/src/assets/photographers/${portrait}`
@@ -64,7 +64,7 @@ module.exports = {
       a.setAttribute('href', '#')
 
       const article = document.createElement('article')
-      const articleInfo = document.createElement('div')
+      const articleInfo = document.createElement('article')
       articleInfo.classList.add('articleInfo')
       const pTitle = document.createElement('p')
       const pLikes = document.createElement('p')
@@ -101,7 +101,7 @@ module.exports = {
       })
       // annulation de l'effet 'a' sur les titres des images
       articleInfo.addEventListener('click', e => {
-        e.preventDefault()
+        e.stopPropagation()
       })
       // recuperation de media
       const media = getMedia()
@@ -112,7 +112,7 @@ module.exports = {
       articleInfo.appendChild(pLikes)
       pLikes.appendChild(love)
       a.appendChild(article)
-      article.appendChild(articleInfo)
+      a.appendChild(articleInfo)
 
       return a
     }
