@@ -1,99 +1,150 @@
 <!DOCTYPE html>
 <html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/17560ba329.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Fisheye - photographe</title>
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/17560ba329.js" crossorigin="anonymous"></script>
-  <title>Fisheye - photographe</title>
-</head>
+  <body id="body">
+    <!-- Modal de contact -->
+    <div id="modalbackground">
+      <div
+        id="contactModal"
+        aria-hidden="true"
+        role="dialog"
+        aria-labelledby="modal-title"
+      >
+        <div class="modal">
+          <div class="modalSub">
+            <h2 id="modal-title" class="photographName">Contactez-moi</h2>
+            <img
+              class="closeModal"
+              src="../assets/icons/close.svg"
+              role="button"
+              aria-label="Close Contact form"
+              tabindex="0"
+              alt="Close Contact form"
+            />
+          </div>
+          <form id="form-contact" tabindex="-1">
+            <div
+              data-error="Veuillez entrer 2 caractères ou plus pour le champ du prenom."
+              data-error-visible="false"
+              class="formData formDataFirst"
+            >
+              <label>Prénom</label><br />
+              <input
+                class="text-control"
+                type="text"
+                id="first"
+                name="first"
+              /><br />
+            </div>
+            <!-- Nom -->
+            <div
+              data-error="Veuillez entrer 2 caractères ou plus pour le champ du nom."
+              data-error-visible="false"
+              class="formData formDataLast"
+            >
+              <label>Nom</label><br />
+              <input
+                class="text-control"
+                type="text"
+                id="last"
+                name="last"
+              /><br />
+            </div>
+            <!-- Email -->
+            <div
+              data-error="Vous devez entrée une adresse email correct."
+              data-error-visible="false"
+              class="formData formDataEmail"
+            >
+              <label>E-mail</label><br />
 
-<body id="body">
-  <!-- Modal de contact -->
-  <div id="modalbackground">
-    <div id="contactModal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
-      <div class="modal">
-        <div class="modalSub">
-          <h2 id="modal-title" class="photographName">Contactez-moi</h2>
-          <img class="closeModal" src="../assets/icons/close.svg" role="button" aria-label="Close Contact form"
-            tabindex="0" alt="Close Contact form" />
+              <input
+                class="text-control"
+                type="email"
+                id="email"
+                name="email"
+              /><br />
+            </div>
+            <div>
+              <label for="message">Votre message</label>
+              <textarea id="message" aria-label="message"></textarea>
+            </div>
+            <input type="submit" value="Envoyer" class="contactSend" />
+          </form>
         </div>
-        <form id="form-contact">
-          <div>
-            <label for="prenom">Prénom</label>
-            <input type="text" id="prenom" aria-label="prenom" />
-          </div>
-          <div>
-            <label for="nom">nom</label>
-            <input id="nom" aria-label="nom" />
-          </div>
-          <div>
-            <label for="email">email</label>
-            <input type="email" id="email" aria-label="email" />
-          </div>
-          <div>
-            <label for="message">Votre message</label>
-            <textarea id="message" aria-label="message"></textarea>
-          </div>
-          <input type="submit" value="Envoyer" class="contactSend" />
-        </form>
       </div>
     </div>
-  </div>
 
-  <header>
-    <a href="./index.html" aria-label="Fisheye Home Page">
-      <img src="../assets/images/logo.png" alt="Fisheye Home Page" class="logo" />
-    </a>
-  </header>
+    <header>
+      <a href="./index.html" aria-label="Fisheye Home Page">
+        <img
+          src="../assets/images/logo.png"
+          alt="Fisheye Home Page"
+          class="logo"
+        />
+      </a>
+    </header>
 
-  <main id="main" aria-hidden="false">
-    <!-- bandeau de presentation du photographe avec button de contact  -->
-    <section id="photographCardInfo">
-      <button class="contactButton" aria-label="contact me">
-        Contactez-moi
+    <main id="main" aria-hidden="false">
+      <!-- bandeau de presentation du photographe avec button de contact  -->
+      <section id="photographCardInfo">
+        <button class="contactButton" aria-label="contact me">
+          Contactez-moi
+        </button>
+      </section>
+      <!-- Dropdown des filtres  -->
+      <section id="filter">
+        <label class="sort" for="sort-by"> Trier par </label>
+        <select id="sort-by" name="sort-by">
+          <option value="date">Date</option>
+          <option value="popular">Popularité</option>
+          <option value="title">Titre</option>
+        </select>
+      </section>
+      <!-- infoBar  -->
+      <!-- Medias des photographes  -->
+      <section id="photographMedias"></section>
+      <!-- total des like & tagline  -->
+      <div id="totalLikes">
+        <div class="totalbis">
+          <p id="total"></p>
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <p class="tagline"></p>
+      </div>
+    </main>
+
+    <!-- Lightbox  -->
+    <div id="lightbox" class="lightbox">
+      <button
+        id="lightbox-close"
+        class="lightbox__close"
+        aria-label=" close lightbox"
+      >
+        <i class="fa-solid fa-xmark"></i>
       </button>
-    </section>
-    <!-- Dropdown des filtres  -->
-    <section id="filter">
-      <label class="sort" for="sort-by">
-        Trier par
-      </label>
-      <select id="sort-by" name="sort-by">
-        <option value="date">Date</option>
-        <option value="popular">Popularité</option>
-        <option value="title">Titre</option>
-      </select>
-    </section>
-    <!-- infoBar  -->
-    <!-- Medias des photographes  -->
-    <section id="photographMedias"></section>
-    <!-- total des like & tagline  -->
-    <div id="totalLikes">
-      <div class="totalbis">
-        <p id="total"></p>
-        <i class="fa-solid fa-heart"></i>
+      <button id="next" class="lightbox__next" aria-label="Next image">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+      <button id="previous" class="lightbox__prev" aria-label=" previous image">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <div id="lightbox-container" class="lightbox__container"></div>
+      <div class="divTitle">
+        <p id="titleMedia"></p>
       </div>
-      <p class="tagline"></p>
     </div>
-  </main>
-
-  <!-- Lightbox  -->
-  <div id="lightbox" class="lightbox">
-    <button id="lightbox-close" class="lightbox__close" aria-label=" close lightbox">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-    <button id="next" class="lightbox__next" aria-label="Next image">
-      <i class="fa-solid fa-chevron-right"></i>
-    </button>
-    <button id="previous" class="lightbox__prev" aria-label=" previous image">
-      <i class="fa-solid fa-chevron-left"></i>
-    </button>
-    <div id="lightbox-container" class="lightbox__container"></div>
-    <div class="divTitle">
-      <p id="titleMedia"></p>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
