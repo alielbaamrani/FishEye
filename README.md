@@ -1,4 +1,6 @@
-# Projet FishEye - Projet 4 - OpenClassRoom
+# FishEye - Créez un site accessible pour une plateforme de photographes
+
+Projet FishEye - Projet 4 - OpenClassRoom
 
 ## Installer Webpack
 
